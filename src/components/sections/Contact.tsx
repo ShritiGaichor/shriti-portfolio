@@ -1,7 +1,8 @@
-
 import { useState } from "react";
 import { ArrowRight, Mail, Phone, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useToast } from "@/hooks/use-toast";
+import emailjs from "emailjs-com";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -9,22 +10,49 @@ const Contact = () => {
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      message: message,
+      to_email: "shritigaichor@gmail.com"
+    };
+
+    emailjs.send(
+      "service_placeholder",
+      "template_placeholder",
+      templateParams,
+      "public_key_placeholder"
+    )
+    .then(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
       setName("");
       setEmail("");
       setMessage("");
       
-      // Reset success message after a delay
+      toast({
+        title: "Message Sent",
+        description: "Thank you for your message. I'll get back to you soon!",
+      });
+      
       setTimeout(() => setIsSubmitted(false), 5000);
-    }, 1500);
+    })
+    .catch((error) => {
+      console.error("Email Error:", error);
+      setIsSubmitting(false);
+      
+      toast({
+        title: "Error",
+        description: "Unable to send your message. Please try again later.",
+        variant: "destructive",
+      });
+    });
   };
 
   return (
