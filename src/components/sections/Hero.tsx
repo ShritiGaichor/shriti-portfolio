@@ -53,7 +53,7 @@ const Hero = () => {
             <div className="relative">
               <div className="aspect-square overflow-hidden rounded-2xl border border-border/50 shadow-xl shadow-primary/5">
                 <img 
-                  src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" 
+                  src="/shriti.png" 
                   alt="Shriti Gaichor" 
                   className="w-full h-full object-cover"
                   loading="lazy"
