@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
 
 interface ProjectCardProps {
   title: string;
@@ -9,6 +10,7 @@ interface ProjectCardProps {
   technologies: string[];
   image?: string;
   className?: string;
+  slug: string;
 }
 
 const ProjectCard = ({
@@ -17,6 +19,7 @@ const ProjectCard = ({
   technologies,
   image,
   className,
+  slug,
 }: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -56,15 +59,17 @@ const ProjectCard = ({
           ))}
         </div>
         
-        <div className="flex items-center text-primary font-medium transition-all duration-300">
-          View Project
-          <ArrowRight 
-            className={cn(
-              "ml-1 w-4 h-4 transition-transform duration-300",
-              isHovered ? "translate-x-1" : ""
-            )}
-          />
-        </div>
+        <Link to={`/projects/${slug}`} className="group">
+          <div className="flex items-center text-primary font-medium transition-all duration-300">
+            View Project
+            <ArrowRight 
+              className={cn(
+                "ml-1 w-4 h-4 transition-transform duration-300",
+                isHovered ? "translate-x-1" : ""
+              )}
+            />
+          </div>
+        </Link>
       </div>
       
       {/* Subtle gradient accent */}

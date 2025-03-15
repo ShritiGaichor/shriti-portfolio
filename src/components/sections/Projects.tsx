@@ -7,31 +7,36 @@ const Projects = () => {
       title: "Ticket Booking System",
       description: "A comprehensive ticket booking system with support for online, offline and kiosk bookings. Integrated secure payment gateway and responsive design.",
       technologies: ["HTML", "CSS", "Bootstrap", "REST API"],
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475"
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475",
+      slug: "ticket-booking-system"
     },
     {
       title: "OnestopNDT (Media Platform)",
       description: "A full-featured media platform with user authentication, role-based access, and content management dashboard.",
       technologies: ["HTML", "CSS", "React", "Bootstrap", "REST API"],
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7"
+      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
+      slug: "onestop-ndt"
     },
     {
       title: "Swimming Pool Online Booking System",
       description: "An interactive booking system for swimming pools with member profile management and payment integration.",
       technologies: ["HTML", "CSS", "React", "REST API"],
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+      slug: "swimming-pool-booking"
     },
     {
       title: "Facebio (Face Detection & Attendance System)",
       description: "Automated attendance tracking system using face detection, integrated with Aadhaar APIs for authentication.",
       technologies: ["HTML", "CSS", "JavaScript", "REST API"],
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+      slug: "facebio"
     },
     {
       title: "Content Management System",
       description: "Modern CMS with role-based access control, built with performance optimizations including caching and lazy loading.",
       technologies: ["Next.js", "Tailwind CSS", "Node.js", "MongoDB"],
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7"
+      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
+      slug: "content-management-system"
     }
   ];
 
@@ -52,6 +57,7 @@ const Projects = () => {
                 description={project.description}
                 technologies={project.technologies}
                 image={project.image}
+                slug={project.slug}
               />
             </div>
           ))}
